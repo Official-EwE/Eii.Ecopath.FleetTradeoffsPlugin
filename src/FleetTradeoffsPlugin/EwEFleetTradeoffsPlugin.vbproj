@@ -1,0 +1,116 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <Platforms>x86;x64;AnyCPU</Platforms>
+    <OutputType>Library</OutputType>
+    <MyType>Windows</MyType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Company>Ecopath International Initiative Research Association</Company>
+    <Product>EwEFleetTradeoffsPlugin</Product>
+    <Copyright>Copyright © 2024</Copyright>
+    <Description></Description>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>EwEFleetTradeoffsPlugin.xml</DocumentationFile>
+    <NoWarn></NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineDebug>false</DefineDebug>
+    <DocumentationFile>EwEFleetTradeoffsPlugin.xml</DocumentationFile>
+    <NoWarn></NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>EwEFleetTradeoffsPlugin.xml</DocumentationFile>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>EwEFleetTradeoffsPlugin.xml</DocumentationFile>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>EwEFleetTradeoffsPlugin.xml</DocumentationFile>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>EwEFleetTradeoffsPlugin.xml</DocumentationFile>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+	<PropertyGroup>
+		<EwEBuildDateUtc>$([System.DateTime]::UtcNow.ToString("yyyy-MM-dd"))</EwEBuildDateUtc>
+	</PropertyGroup>
+	<ItemGroup>
+		<AssemblyMetadata Include="EwEBuildDateUtc" Value="$(EwEBuildDateUtc)" />
+	</ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Update="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Update="UI\frmFleetTradeoffs.Designer.vb">
+      <DependentUpon>frmFleetTradeoffs.vb</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    
+  </ItemGroup>
+  <PropertyGroup>
+    <OutputPath Condition="'$(OutputPath)' == ''">bin\$(Configuration)\</OutputPath>
+    <OutputPath>$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))$(TargetFramework)\Plugins\$([System.IO.Path]::GetFileName('$(MSBuildProjectDirectory)'))\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutDir Condition="'$(OutDir)' != ''">$([MSBuild]::EnsureTrailingSlash('$(OutDir)'))Plugins\$([System.IO.Path]::GetFileName('$(MSBuildProjectDirectory)'))\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Eii.Ecopath.FleetTradeoffsPlugin</PackageId>
+    <Title>FleetTradeoffsPlugin</Title>
+    <Authors>Ecopath International Initiative Research Association</Authors>
+    <Description>FleetTradeoffsPlugin plugin for Ecopath with Ecosim.</Description>
+    <Product>EwEFleetTradeoffsPlugin</Product>
+    <Company>Ecopath International Initiative Research Association</Company>
+    <Copyright>Copyright © 2024</Copyright>
+    <PackageProjectUrl>https://github.com/Official-EwE/Eii.Ecopath.FleetTradeoffsPlugin</PackageProjectUrl>
+    <PackageLicenseExpression>EUPL-1.2</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Official-EwE/Eii.Ecopath.FleetTradeoffsPlugin</RepositoryUrl>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <IncludeSource>true</IncludeSource>
+    <IncludeReferencedProjects>True</IncludeReferencedProjects>
+    <PackageIcon>EII_plain_128x128.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="True" PackagePath="\" />
+    <None Include="..\..\EII_plain_128x128.png" Pack="True" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Eii.Ecopath.ScientificInterfaceShared" Version="6.7.*" />
+  </ItemGroup>
+</Project>
